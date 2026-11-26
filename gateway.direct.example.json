@@ -1,0 +1,11 @@
+{
+  "site": "https://test.example.invalid",
+  "buckets_root": "cloudreve://my/S3",
+  "session_file": ".state/direct/session.json",
+  "upload_dir": ".state/direct/uploads",
+  "write_enabled": true,
+  "multipart_enabled": false,
+  "max_multipart_bytes": 5368709120,
+  "max_staging_bytes": 6442450944,
+  "timeout_seconds": 600
+}

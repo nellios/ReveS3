@@ -1,0 +1,38 @@
+[Unit]
+Description=Cloudreve S3 gateway
+Wants=network-online.target
+After=network-online.target
+StartLimitIntervalSec=120
+StartLimitBurst=5
+
+[Service]
+Type=simple
+User=cloudreve-s3
+Group=cloudreve-s3
+WorkingDirectory=/var/lib/cloudreve-s3-gateway
+EnvironmentFile=/etc/cloudreve-s3-gateway/credentials.env
+ExecStart=/opt/cloudreve-s3-gateway/cloudreve-s3 serve -config /etc/cloudreve-s3-gateway/gateway.json
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=30
+UMask=0077
+StateDirectory=cloudreve-s3-gateway
+StateDirectoryMode=0700
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+RestrictRealtime=true
+LockPersonality=true
+CapabilityBoundingSet=
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+MemoryMax=256M
+TasksMax=128
+
+[Install]
+WantedBy=multi-user.target

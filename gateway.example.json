@@ -1,0 +1,16 @@
+{
+  "listen": "127.0.0.1:7070",
+  "allow_remote_listen": false,
+  "site": "https://test.example.invalid",
+  "allow_http": false,
+  "root": "cloudreve://my/s3-files",
+  "bucket": "cloudreve",
+  "region": "us-east-1",
+  "session_file": ".state/session.json",
+  "timeout_seconds": 60,
+  "max_entries": 10000,
+  "max_concurrent": 16,
+  "write_enabled": false,
+  "max_upload_bytes": 33554432,
+  "upload_dir": ".state/uploads"
+}

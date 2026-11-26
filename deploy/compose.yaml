@@ -1,0 +1,31 @@
+services:
+  gateway:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    image: "cloudreve-s3:local"
+    restart: unless-stopped
+    environment:
+      S3_ACCESS_KEY_ID: "${S3_ACCESS_KEY_ID:?Set S3_ACCESS_KEY_ID}"
+      S3_SECRET_ACCESS_KEY: "${S3_SECRET_ACCESS_KEY:?Set S3_SECRET_ACCESS_KEY}"
+    ports:
+      - "127.0.0.1:7070:7070"
+    volumes:
+      - type: bind
+        source: ./gateway.json
+        target: /config/gateway.json
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: volume
+        source: gateway-state
+        target: /state
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    stop_grace_period: 30s
+
+volumes:
+  gateway-state:

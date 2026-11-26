@@ -1,0 +1,3 @@
+# Used only by tools/verify_gateway_live.py; no Python runtime is needed by the gateway.
+boto3==1.44.11
+awscli==1.46.3

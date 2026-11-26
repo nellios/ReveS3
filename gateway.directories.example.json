@@ -1,0 +1,28 @@
+{
+  "_comments": {
+    "single_bucket_mode": "true：只用所填的文件夹当桶；false：把它里面的每个文件夹各当一个桶。桶名就是文件夹名。",
+    "buckets_root": "填网盘文件夹地址。只用 test 桶时填 cloudreve://my/test，并把上面的开关改成 true。文件夹要先建好，当前账号要能打开；不能填网盘最外层。",
+    "site": "填网盘网址，不要带 /home、/api/v4 等后缀。网址以 http:// 开头时，还要把 allow_http 改为 true；HTTP 不加密，密码和文件可能被别人看到。",
+    "listen": "一般不用改。客户端连接 http://127.0.0.1:7070，Region 填 us-east-1，访问方式选“路径样式（path-style）”。",
+    "write_enabled": "默认 false，只能查看和下载。需要上传或删除就改 true；上传大文件还要把 multipart_enabled 改为 true。",
+    "session_file": "用来记住网盘登录，不保存密码；每个网关要单独保存，S3 密钥也不要混用。",
+    "upload_dir": "上传临时文件和断点记录放这里，不要删；切换模式前先完成或取消上传。"
+  },
+  "listen": "127.0.0.1:7070",
+  "allow_remote_listen": false,
+  "site": "https://test.example.invalid",
+  "allow_http": false,
+  "single_bucket_mode": false,
+  "buckets_root": "cloudreve://my/S3",
+  "region": "us-east-1",
+  "session_file": ".state/session.json",
+  "timeout_seconds": 60,
+  "max_entries": 10000,
+  "max_concurrent": 16,
+  "write_enabled": false,
+  "multipart_enabled": false,
+  "max_multipart_bytes": 5368709120,
+  "max_staging_bytes": 6442450944,
+  "max_upload_bytes": 33554432,
+  "upload_dir": ".state/uploads"
+}

@@ -1,0 +1,15 @@
+/.config
+/.env
+/.state/
+/.research/
+/dist/
+/gateway.json
+/deploy/gateway.json
+/deploy/.env
+/cloudreve-s3
+/cloudreve-s3.exe
+__pycache__/
+*.pyc
+*.test
+*.log
+.DS_Store
